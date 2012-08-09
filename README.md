@@ -7,14 +7,14 @@ A generic PHP class meant to ease/abstract the use of PostageApp (http://postage
 Just a single file with the class, that's it. Config boils down to listing your projects and API keys, so it's in the same file. Move it into a separate include if you think it's necessary.
 
 # Installation
-Check it out, move it wherever appropriate, list your project names and accompanying API keys in an array marked "ADD OUR POSTAGE APP PROJECTS HERE", include it and start using it.
+Check it out, move it wherever appropriate, list your project names and accompanying API keys in an array marked "ADD OUR POSTAGE APP PROJECTS HERE", include it and start using it. Note: requires cURL!
 
 # Methods
 
-## Static:
+### Static
 - listProjects() - returns an array of all the project names hardcoded into the class
 
-## Setters:
+### Setters
 - setProject($project) - sets current project to $project
 - setRecipients($recipients) - sets the e-mail recipients to $recipients; can be an array or a comma separated string - both versions get internally converted into an array to avoid divulging e-mail addresses to third parties (by default, PostageApp shows all addresses to all recipients if they're passed as a comma separated string)
 - setSubject($subject) - sets the e-mail subject to $subject
@@ -27,7 +27,7 @@ Check it out, move it wherever appropriate, list your project names and accompan
 - setRecipientsWithVars($recipients) - alternative to setRecipients that also sets per-recipient template variables; accepts an array of recipients with subarrays of [variable] => "value" pairs for each recipient; recipient addresses are stored in array keys
 - setAttachments($attachments) - sets the message attachments as specified by the array $attachments; can be either a single attachment or an array of attachments; allows passing mixes of file contents and URLs; refer to source for proper array form
 
-## API endpoints:
+### API endpoints
 - customMail($uid) - sends a custom (meaning non-template) e-mail; if $uid is not supplied, it gets generated from the API call arguments and current timestamp; requires recipients, from, subject and either plaintext or HTML body to be set; returns UID on success, error on failure
 - templateMail($uid) - sends a template based e-mail; if $uid is not supplied, it gets generated from the API call arguments and current timestamp; requires recipients and template to be set; returns UID on success, error on failure
 - getMessageReceipt($uid) - retrieves a receipt (checks if message was received by PostageApp successfully) for message with UID $uid; returns status (usually "ok") on success, error on failure
@@ -35,7 +35,7 @@ Check it out, move it wherever appropriate, list your project names and accompan
 - getMessageStatus($uid) - retrieves the status of a message with the UID $uid - namely, its transmissions; returns transmissions on success, error on failure
 - getMetrics() - retrieves metrics for the currently active project; returns metrics data on success, error on failure
 
-## Properties
+### Properties
 - $response - contains the current API call's response or FALSE if it failed
 - $error - contains the error from an API call's failure or FALSE if it succeeded
 
