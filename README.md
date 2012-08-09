@@ -1,7 +1,7 @@
 PostageAppClass
 ===============
 
-A generic PHP class meant to ease/abstract the use of PostageApp (http://postageapp.com/) mailing services.
+A generic PHP class meant to ease/abstract the use of PostageApp (http://postageapp.com/) mailing services. For regular folks who don't use CodeIgniter or CakePHP, but are too lazy to roll their own.
 
 # Contents
 Just a single file with the class, that's it. Config boils down to listing your projects and API keys, so it's in the same file. Move it into a separate include if you think it's necessary.
