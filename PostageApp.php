@@ -127,7 +127,7 @@ class PostageApp {
   public function setBody($bodyPlain, $bodyHTML = NULL) {
     $this->_bodyPlain = $bodyPlain;
     if($bodyHTML !== NULL) $this->_bodyHTML = $bodyHTML;
-    else $this->_bodyHTML = $bodyPlain;
+    else $this->_bodyHTML = str_replace("\n", "<br />", $bodyPlain);
     return $this;
   }
 
