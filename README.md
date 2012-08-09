@@ -43,11 +43,11 @@ Check it out, move it wherever appropriate, list your project names and accompan
 All the setters are chainable. All the API endpoint methods are not. The idea being that you will chain the setters and finish with an API call. The sole static method is used before instantiating the object, to get a list of projects. You can set the current project during instantiation ($mypostage = new PostageApp("myproject")) or omit it and set it after the fact with setProject(). API call methods don't tell you if an operation succeeded or errored out. You can either parse the returned value yourself, or check the $response and $error properties to find that out. Beware the fact that internal properties for recipients, attachments, subject etc. DO NOT get reset after executing customMail() and templateMail()! That will change in the future versions. They do, however, get reset if you switch projects using setProject().
 
 # Example
-$projects = PostageApp::listProjects();
-$mypostage = new PostageApp($projects[0]);
-$mypostage->setRecipients($recipients)->setFrom($us)->setReplyto($us);
-$response = $mypostage->setSubject("Our Fancy Subject")->setBody($body)->customMail();
-
-$mypostage->setProject($projects[1])->setRecipients($recipients2);
-$response = $mypostage->setTemplate("FANCY_PANTS_TEMPLATE")->templateMail();
-if($response->status) $transmissions = $mypostage->getMessageStatus($response->uid);
+      $projects = PostageApp::listProjects();
+      $mypostage = new PostageApp($projects[0]);
+      $mypostage->setRecipients($recipients)->setFrom($us)->setReplyto($us);
+      $response = $mypostage->setSubject("Our Fancy Subject")->setBody($body)->customMail();
+      
+      $mypostage->setProject($projects[1])->setRecipients($recipients2);
+      $response = $mypostage->setTemplate("FANCY_PANTS_TEMPLATE")->templateMail();
+      if($response->status) $transmissions = $mypostage->getMessageStatus($response->uid);
