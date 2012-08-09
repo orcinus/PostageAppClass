@@ -35,7 +35,7 @@ Check it out, move it wherever appropriate, list your project names and accompan
 - getMessageStatus($uid) - retrieves the status of a message with the UID $uid - namely, its transmissions; returns transmissions on success, error on failure
 - getMetrics() - retrieves metrics for the currently active project; returns metrics data on success, error on failure
 
-### Properties
+# Properties
 - $response - contains the current API call's response or FALSE if it failed
 - $error - contains the error from an API call's failure or FALSE if it succeeded
 
