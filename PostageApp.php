@@ -284,6 +284,7 @@ class PostageApp {
         $content = array();
         if($this->_from) $content['headers']['From'] = $this->_from;
         if($this->_replyto) $content['headers']['Reply-to'] = $this->_replyto;
+        if($this->_subject) $content['headers']['Subject'] = $this->_subject;
         if($this->_header) $content['headers'] = array_merge($this->_header, $content);
         $content = array_merge( $content, 
                                 array(
